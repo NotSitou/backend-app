@@ -21,6 +21,7 @@
     "redux-thunk": "^2.3.0",
     "swiper": "^11.0.7",
     "typescript": "^3.2.1",
+    "uteach": "file:..",
     "uuid": "^3.4.0"
   },
   "scripts": {
