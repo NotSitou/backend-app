@@ -1,4 +1,4 @@
-import { GET_USER, ADD_USER, DELETE_USER, UPDATE_USER } from './types';
+import { GET_USER, DELETE_USER, UPDATE_USER } from './types';
 import { tokenconfig } from './authactions';
 import { returnErrors } from './erroractions';
 import api from '../utils/api';

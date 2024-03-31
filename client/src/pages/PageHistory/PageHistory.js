@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { HiClock, HiMiniMagnifyingGlass } from 'react-icons/hi2';
+import { HiClock } from 'react-icons/hi2';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrderByStudentId, updateOrder } from '../../actions/orderActions';
 import StarRating from '../../components/StarRating';
@@ -8,6 +8,7 @@ export default function PageHistory() {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.order);
   const { user } = useSelector((state) => state.auth);
+  // eslint-disable-next-line no-unused-vars
   const [search, setSearch] = useState('');
   const [selectedOrder, setSelectedOrder] = useState('');
   const [rating, setRating] = useState(0);
