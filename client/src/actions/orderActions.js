@@ -39,6 +39,21 @@ export const getOrderByStudentId = (studentId) => (dispatch) => {
     );
 };
 
+export const getOrderByMentorId = (studentId) => (dispatch) => {
+  dispatch(setOrderLoading());
+  api
+    .get(`/api/orders/mentor/${studentId}`)
+    .then((res) =>
+      dispatch({
+        type: GET_ORDER,
+        payload: res.data
+      })
+    )
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
+
 export const updateOrder = (id, order) => (dispatch, getState) => {
   dispatch(setOrderLoading());
   api

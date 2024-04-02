@@ -9,7 +9,11 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getSubject } from '../../actions/subjectActions';
 import { Link } from 'react-router-dom';
-import { getOrderByStudentId, updateOrder } from '../../actions/orderActions';
+import {
+  getOrderByMentorId,
+  getOrderByStudentId,
+  updateOrder
+} from '../../actions/orderActions';
 import { getItem, updateItemStatus } from '../../actions/itemActions';
 
 export default function PageHome() {
@@ -29,7 +33,7 @@ export default function PageHome() {
       dispatch(getSubject());
     }
     if (user.activeRole === 'mentor') {
-      dispatch(getOrderByStudentId(user._id));
+      dispatch(getOrderByMentorId(user._id));
     }
     if (user.activeRole === 'admin') {
       dispatch(getItem());
@@ -72,6 +76,7 @@ export default function PageHome() {
         status: 'Offer sent to student'
       })
     );
+    adjustPriceModalRef.current.close();
   };
 
   // if (orders.orders.length === 0) {

@@ -35,7 +35,7 @@ export default function PageRequestMentor() {
         setRequested(true);
       }
     }
-  }, [dispatch, user._id, item.items]);
+  }, [dispatch]);
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });

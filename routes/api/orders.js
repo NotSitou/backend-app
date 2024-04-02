@@ -63,6 +63,13 @@ router.put('/:_id', auth, async function (req, res) {
   try {
     const order = await Order.findById(req.params._id);
 
+    for (const field in req.body) {
+      order[field] = req.body[field];
+    }
+    order.save();
+    // .then((updatedOrder) => res.json(updatedOrder))
+    // .catch((err) => res.status(400).json({ success: false, error: err }));
+
     if (req.body.rating) {
       const mentorId = order.mentorId;
 
@@ -87,16 +94,9 @@ router.put('/:_id', auth, async function (req, res) {
 
       console.log('newAverageRating', newAverageRating);
       res.json({ success: true, rating: newAverageRating });
-    } else {
-      for (const field in req.body) {
-        order[field] = req.body[field];
-      }
-
-      order
-        .save()
-        .then((updatedOrder) => res.json(updatedOrder))
-        .catch((err) => res.status(400).json({ success: false, error: err }));
     }
+
+    res.json({ success: true });
   } catch (err) {
     console.error('Error updating order or item:', err);
     res.status(500).json({ success: false, error: 'Error updating rating' });

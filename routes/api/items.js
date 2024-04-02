@@ -86,7 +86,7 @@ router.put('/status/:_id', auth, function (req, res) {
       { role: 'mentor' },
       function (err, result) {
         if (err) {
-          res
+          result
             .status(404)
             .json({ success: false, message: 'Failed to update user' });
         }
@@ -111,7 +111,7 @@ router.post('/', auth, function (req, res) {
     gpa: req.body.gpa,
     skills: req.body.skills,
     certificate: req.body.certificate,
-    status: 'Waiting for approval'
+    status: 'Waiting for Approval'
   });
 
   // find subject by subjectName and increment mentors
