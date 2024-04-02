@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '34.126.90.234:3000/'
+  baseURL: 'https://uteach.up.railway.app/'
   // baseURL: 'http://localhost:5000/'
 });
 
